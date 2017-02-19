@@ -8,10 +8,7 @@ body {
   padding-bottom: 20px; /*ahem, spacing!*/
   background-color: #D5EEF6;
 }
-body {
-  color:  #D5EEF6;
-  text-align: center;
-}
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
@@ -56,6 +53,53 @@ body {
 	font-size: 36px;
 }
 
+.btn_sky { 
+  color: #000000; 
+  background-color: #FFFFFF; 
+  border-color: #53C1EB; 
+} 
+ 
+.btn_sky:hover, 
+.btn_sky:focus, 
+.btn_sky:active, 
+.btn_sky.active, 
+.open .dropdown-toggle.btn_sky { 
+  color: #000000; 
+  background-color: #53C1EB; 
+  border-color: #53C1EB; 
+} 
+ 
+.btn_sky:active, 
+.btn_sky.active, 
+.open .dropdown-toggle.btn_sky { 
+  background-image: none; 
+} 
+ 
+.btn_sky.disabled, 
+.btn_sky[disabled], 
+fieldset[disabled] .btn_sky, 
+.btn_sky.disabled:hover, 
+.btn_sky[disabled]:hover, 
+fieldset[disabled] .btn_sky:hover, 
+.btn_sky.disabled:focus, 
+.btn_sky[disabled]:focus, 
+fieldset[disabled] .btn_sky:focus, 
+.btn_sky.disabled:active, 
+.btn_sky[disabled]:active, 
+fieldset[disabled] .btn_sky:active, 
+.btn_sky.disabled.active, 
+.btn_sky[disabled].active, 
+fieldset[disabled] .btn_sky.active { 
+  background-color: #FFFFFF; 
+  border-color: #53C1EB; 
+} 
+ 
+.btn_sky .badge { 
+  color: #FFFFFF; 
+  background-color: #000000; 
+}
+
+/*this is where shit broke :'(
 .parallax {
   height: ;
   overflow-x: hidden;
@@ -90,10 +134,6 @@ body {
     transform: translateZ(-300px) scale(2);
     z-index: 3;
     height:100%;
-}
-
-body, html {
-    overflow: hidden;
 }
 
 #group1 {
