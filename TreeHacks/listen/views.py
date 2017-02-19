@@ -17,6 +17,11 @@ def index(request):
     return render(request, 'listen/index.html', context)
 
 def make_playlist(request):
+    if (request.method == 'POST'):
+        stuff = request.POST.get("level")
+        song_list = Song.objects.all()
+        context = {'song_list': song_list}
+        return render(request, 'listen/make-playlist.html', context)
     return HttpResponse("Yooooo!")
 
 # Create your views here.

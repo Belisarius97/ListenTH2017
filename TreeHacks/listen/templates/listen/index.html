@@ -37,7 +37,7 @@
 
 		<div class="jumbotron">
 			<!-- <h1>LISTen</h1> -->
-			<center><img src="{% static 'listen/images/Logo_Logo.png' %}" class="img-responsive" alt="LISTen logo" /></center>
+			<center><img src="{% static 'listen/images/Assets_Logo.png' %}" class="img-responsive" alt="LISTen logo" /></center>
 
 			<div class="small-space-div"></div>
 
@@ -75,7 +75,7 @@
 	<div class="small-space-div"></div>
 	<div class="small-space-div"></div>
 
-	<form action="/listen/make-playlist/" method="post">
+	<form action="/listen/make-playlist/" name="submitform" method="post">
 	{% csrf_token %}
 
 	<div class="row">
@@ -85,17 +85,17 @@
 
 			<img src="{% static 'listen/images/Illustrations_Paris_Beginning.png' %}" alt="Beginner">
 			</div>-->
-			<input type="radio" id="radio1" value="checked" name="selector" >
+			<input type="radio" id="radio1" value="checked" name="level" >
 			<label for="radio1" style="/*font-size: 24px;*/">I AM A BEGINNER</label>
 			<img src="{% static 'listen/images/Illustrations_Color_Paris_Beg.png' %}" alt="Beginner">
 		</div>
 		<div class="col-md-4">
-			<input type="radio" id="radio2" name="selector">
+			<input type="radio" id="radio2" name="level">
 			<label for="radio2" >I AM AN INTERMEDIATE</label>
 			<img src="{% static 'listen/images/Illustrations_Color_Paris_Int.png' %}" alt="Intermediate">
 		</div>
 		<div class="col-md-4">
-			<input type="radio" id="radio3" name="selector" style="position: relative; left: 57px;">
+			<input type="radio" id="radio3" name="level" style="position: relative; left: 57px;">
 			<label for="radio3" style="position: relative; left: 57px;">I AM ADVANCED</label>
 			<img src="{% static 'listen/images/Illustrations_Color_Paris_Advanced.png' %}" alt="Advanced">
 		</div>
@@ -105,9 +105,13 @@
 	<div class="small-space-div"></div>
 	<div class="small-space-div"></div>
 
-	<center><input type="submit" class="make-playlist-button" value="MAKE MY PLAYLIST!" style="font-family: Futura;"></center>
+	<center><input type="submit" name="postbutton" class="make-playlist-button" value="MAKE MY PLAYLIST!" style="font-family: Futura;"></center>
 
 	</form>
+
+	<div class="small-space-div"></div>
+	<div class="small-space-div"></div>
+	<div class="small-space-div"></div>
 
 	<!--
 	<div class="row" id="skillLevel">
@@ -143,48 +147,6 @@
 		</div>
 	</div>
 	-->
-
-	<h1>Here is your playlist:</h1>
-	{% if song_list %}
-		<div class="panel-group" id="accordion">
-	    {% for song in song_list %}
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-					<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
-					Song #{{ forloop.counter }} - {{ song.title }} | {{ song.album }} | {{ song.artist }}</a>
-					</h4>
-					</div>
-					<div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="pre-scrollable">
-										<pre style="font-size: 16px">{{ song.lyrics }}</pre>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<pre style="font-size: 16px">{{ song.lyrics }}</pre>
-									<!--<center>
-
-										<iframe width="480" height="270" src="https://www.youtube.com/embed/CWnYIb2lqpo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-
-										<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A0zCfmceT1YvtZXGbR6Roht" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-									</center>-->
-
-									<h3>Vocabulary list</h3>
-
-								</div>
-							</div>
-						</div>
-				</div>
-			</div>
-	        <!-- <li><a href="/listen/{{ song.pk }}/">{{ song.title }}</a></li> -->
-	    {% endfor %}
-	    </div>
-	{% else %}
-	    <p>No songs are available.</p>
-	{% endif %}
 
 <!--
 	<h1>Here is the mockup image:</h1>

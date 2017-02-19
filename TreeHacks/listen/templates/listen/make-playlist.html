@@ -1,0 +1,64 @@
+<html>
+<head>
+{% load static %}
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+<!-- Include our own CSS style sheet -->
+<link rel="stylesheet" type="text/css" href="{% static 'listen/style.css' %}" />
+</head>
+<body>
+	<!-- Have to include jQuery for stuff to work! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<h1>Here is your playlist:</h1>
+	{% if song_list %}
+		<div class="panel-group" id="accordion">
+	    {% for song in song_list %}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
+					Song #{{ forloop.counter }} - {{ song.title }} | {{ song.album }} | {{ song.artist }}</a>
+					</h4>
+					</div>
+					<div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="pre-scrollable">
+										<pre style="font-size: 16px">{{ song.lyrics }}</pre>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<pre style="font-size: 16px">{{ song.lyrics }}</pre>
+									<!--<center>
+
+										<iframe width="480" height="270" src="https://www.youtube.com/embed/CWnYIb2lqpo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+										<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A0zCfmceT1YvtZXGbR6Roht" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+									</center>-->
+
+									<h3>Vocabulary list</h3>
+
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+	        <!-- <li><a href="/listen/{{ song.pk }}/">{{ song.title }}</a></li> -->
+	    {% endfor %}
+	    </div>
+	{% else %}
+	    <p>No songs are available.</p>
+	{% endif %}
+
+</body>
+</html>
