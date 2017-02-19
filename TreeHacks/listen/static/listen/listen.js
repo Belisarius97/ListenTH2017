@@ -1,8 +1,11 @@
-const DEFAULT_DELAY = 10000;
+const DEFAULT_DELAY = 1000;
 
-function scrollTo(elemID) {
-	var goto = $("#"+elemID)l
-	$('html, body').animate({
-		scrollTop: goto.offset().top
-	}, DEFAULT_DELAY)
-}
+$('a[href^="#"]').on('click', function(event) {
+    var target = $(this.getAttribute('href'));
+    if( target.length ) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+            scrollTop: target.offset().top
+        }, DEFAULT_DELAY);
+    }
+});

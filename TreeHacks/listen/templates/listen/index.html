@@ -19,42 +19,55 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 	<!-- Including our own custom javascript/JQuery -->
-	<script src="../../../static/listen/listen.js"></script>
+	<script type="text/javascript" src="{% static 'listen/listen.js' %}"></script>
 
 	<div class="container" id="splash">
-		<div class="header clearfix">
-			<nav>
-				<ul class="nav nav-pills pull-right">
-					<li role="presentation" class="active"><a href="#">Home</a></li>
-					<li role="presentation"><a href="#">About</a></li>
-					<li role="presentation"><a href="#">Contact</a></li>
-				</ul>
-			</nav>
-		<h3 class="text-muted">LISTen - yadda yadda cool slogan here</h3>
+		<div class="parallax">
+			<div id="group1" class="parallax_group">
+				<div class="parallax_layer parallax_layer_back">
+					<div class="header clearfix">
+						<nav>
+							<ul class="nav nav-pills pull-right">
+								<li role="presentation" class="active"><a href="#">Home</a></li>
+								<li role="presentation"><a href="#">About</a></li>
+								<li role="presentation"><a href="#">Contact</a></li>
+							</ul>
+						</nav>
+					<h3 class="text-muted">LISTen - yadda yadda cool slogan here</h3>
+					</div>
+
+					<div class="jumbotron">
+						<!-- <h1>LISTen</h1> -->
+						<center><img src="{% static 'listen/images/Logo_Logo.png' %}" class="img-responsive" alt="LISTen logo" /></center>
+
+						<p class="lead">helps you learn languages on-the-go by<br />curating playlists just for you!</p>
+						<p><a class="btn btn-lg btn-success" href="#langSelect" id="startBtn" role="button">Get started!</a></p>
+					</div>
+				</div>	
+			</div>
 		</div>
 
-		<div class="jumbotron">
-			<!-- <h1>LISTen</h1> -->
-			<center><img src="{% static 'listen/images/Logo_Logo.png' %}" class="img-responsive" alt="LISTen logo" /></center>
-
-			<p class="lead">helps you learn languages on-the-go by<br />curating playlists just for you!</p>
-			<p><a class="btn btn-lg btn-success" href="#langSelect" onclick="scrollTo('langSelect'); return false" 
-			role="button">Get started!</a></p>
+		<div class="parallax">
+			<div class="parallax_layer parallax_layer_base">
+				<center id="langSelect">
+					<h4>I want to learn...</h4>
+					<div class="dropdown">
+						<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Français  <span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Français</a></li>
+							<li class="disabled"><a href="#">Español</a></li>
+							<li class="disabled"><a href="#">More coming soon!</a></li>
+						</ul>
+					</div>
+				</center>
+				<img src="{% static 'listen/images/Illustrations_Paris_Banner.png' %}" class="img-responsive" alt="Mockup" />
+			</div>
 		</div>
 
-	<center id="langSelect"> <!--this needs an id to be scrolled to-->
-		<h4>I want to learn...</h4>
-		<div class="dropdown">
-			<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Français  <span class="caret"></span></button>
-			<ul class="dropdown-menu">
-				<li><a href="#">Français</a></li>
-				<li class="disabled"><a href="#">Español</a></li>
-				<li class="disabled"><a href="#">More coming soon!</a></li>
-			</ul>
-		</div>
-	</center>
 
-	<img src="{% static 'listen/images/Illustrations_Paris_Banner.png' %}" class="img-responsive" alt="Mockup" />
+
+
+
 
 	<div class="row">
 		<div class="col-md-4">
