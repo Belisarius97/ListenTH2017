@@ -1,0 +1,134 @@
+<html>
+<head>
+{% load static %}
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+
+<!-- Include our own CSS style sheet -->
+<link rel="stylesheet" type="text/css" href="{% static 'listen/style.css' %}" />
+</head>
+<body>
+	<!-- Have to include jQuery for stuff to work! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<div class="container">
+		<div class="header clearfix">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+					<li role="presentation" class="active"><a href="#">Home</a></li>
+					<li role="presentation"><a href="#">About</a></li>
+					<li role="presentation"><a href="#">Contact</a></li>
+				</ul>
+			</nav>
+		<h3 class="text-muted">LISTen - yadda yadda cool slogan here</h3>
+		</div>
+
+		<div class="jumbotron">
+			<!-- <h1>LISTen</h1> -->
+			<center><img src="{% static 'listen/images/Logo_Logo.png' %}" class="img-responsive" alt="LISTen logo" /></center>
+
+			<p class="lead">helps you learn languages on-the-go by<br />curating playlists just for you!</p>
+			<p><a class="btn btn-lg btn-success" href="#" role="button">Get started!</a></p>
+		</div>
+
+	<center>
+		<h4>I want to learn...</h4>
+		<div class="dropdown">
+			<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Français  <span class="caret"></span></button>
+			<ul class="dropdown-menu">
+				<li><a href="#">Français</a></li>
+				<li class="disabled"><a href="#">Español</a></li>
+				<li class="disabled"><a href="#">More coming soon!</a></li>
+			</ul>
+		</div>
+	</center>
+
+	<img src="{% static 'listen/images/Illustrations_Paris_Banner.png' %}" class="img-responsive" alt="Mockup" />
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<img src="{% static 'listen/images/Illustrations_Paris_Beginning.png' %}" class="img-responsive" alt="Beginner">
+				<div class="caption">
+					<h3>Thumbnail label</h3>
+					<p>...</p>
+					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<img src="{% static 'listen/images/Illustrations_Paris_Intermediate.png' %}" class="img-responsive" alt="Intermediate">
+				<div class="caption">
+					<h3>Thumbnail label</h3>
+					<p>...</p>
+					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<img src="{% static 'listen/images/Illustrations_Paris_Advanced.png' %}" class="img-responsive" alt="Advanced">
+				<div class="caption">
+					<h3>Thumbnail label</h3>
+					<p>...</p>
+					<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h1>Here is your playlist:</h1>
+	{% if song_list %}
+		<div class="panel-group" id="accordion">
+	    {% for song in song_list %}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
+					Song #{{ forloop.counter }} - {{ song.title }} | {{ song.album }} | {{ song.artist }}</a>
+					</h4>
+					</div>
+					<div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="pre-scrollable">
+										<pre style="font-size: 16px">{{ song.lyrics }}</pre>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<center>
+										<iframe width="480" height="270" src="https://www.youtube.com/embed/CWnYIb2lqpo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+										<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A0zCfmceT1YvtZXGbR6Roht" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+									</center>
+
+									<h3>Vocabulary list</h3>
+
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+	        <!-- <li><a href="/listen/{{ song.pk }}/">{{ song.title }}</a></li> -->
+	    {% endfor %}
+	    </div>
+	{% else %}
+	    <p>No songs are available.</p>
+	{% endif %}
+
+	<h1>Here is the reference image:</h1>
+
+	<img src="{% static 'listen/images/MockUp_1.png' %}" class="img-responsive" alt="Mockup" />
+
+	</div>
+</body>
+</html>
