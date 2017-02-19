@@ -18,7 +18,10 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-	<div class="container">
+	<!-- Including our own custom javascript/JQuery -->
+	<script src="../../../static/listen/listen.js"></script>
+
+	<div class="container" id="splash">
 		<div class="header clearfix">
 			<nav>
 				<ul class="nav nav-pills pull-right">
@@ -35,10 +38,11 @@
 			<center><img src="{% static 'listen/images/Logo_Logo.png' %}" class="img-responsive" alt="LISTen logo" /></center>
 
 			<p class="lead">helps you learn languages on-the-go by<br />curating playlists just for you!</p>
-			<p><a class="btn btn-lg btn-success" href="#" role="button">Get started!</a></p>
+			<p><a class="btn btn-lg btn-success" href="#langSelect" onclick="scrollTo('langSelect'); return false" 
+			role="button">Get started!</a></p>
 		</div>
 
-	<center>
+	<center id="langSelect"> <!--this needs an id to be scrolled to-->
 		<h4>I want to learn...</h4>
 		<div class="dropdown">
 			<button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Français  <span class="caret"></span></button>
