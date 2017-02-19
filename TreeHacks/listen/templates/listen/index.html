@@ -49,11 +49,16 @@
 	</div>
 
 	<div class="other-colour">
+
+	<div class="small-space-div"></div>
+	<div class="small-space-div"></div>
+	<div class="small-space-div"></div>
+
 	<div class="container" id="main_content">
 
 			<!--<a href="#" class="greatButton">Get Started</a>-->
 	<center id="langSelect">
-		<h4>I want to learn...</h4>
+		<p class="lead">I want to learn...</p>
 		<div class="dropdown">
 			<!--<button class="btn btn-sky dropdown-toggle" type="button" data-toggle="dropdown">Français  <span class="caret"></span></button>-->
 			<button class="lang-select-button dropdown-toggle" type="button" data-toggle="dropdown">FRANÇAIS       <span class="caret"></span></button>
@@ -64,25 +69,47 @@
 			</ul>
 		</div>
 	</center>
-	<img src="{% static 'listen/images/Illustrations_Paris_Banner.png' %}" class="img-responsive" alt="Mockup" />
+	<img src="{% static 'listen/images/Illustrations_Color_Paris_Banner.png' %}" class="img-responsive" alt="Mockup" />
 
 	<div class="small-space-div"></div>
+	<div class="small-space-div"></div>
+	<div class="small-space-div"></div>
+
+	<form action="/listen/make-playlist/" method="post">
+	{% csrf_token %}
 
 	<div class="row">
 		<div class="col-md-4">
+			<!--<div class="radio" >
+			<label style="font-size: 24px;"><input type="radio" name="optradio"">TEST</label><br/>
+
 			<img src="{% static 'listen/images/Illustrations_Paris_Beginning.png' %}" alt="Beginner">
+			</div>-->
+			<input type="radio" id="radio1" value="checked" name="selector" >
+			<label for="radio1" style="/*font-size: 24px;*/">I AM A BEGINNER</label>
+			<img src="{% static 'listen/images/Illustrations_Color_Paris_Beg.png' %}" alt="Beginner">
 		</div>
 		<div class="col-md-4">
-			<img src="{% static 'listen/images/Illustrations_Paris_Intermediate.png' %}" alt="Intermediate">
+			<input type="radio" id="radio2" name="selector">
+			<label for="radio2" >I AM AN INTERMEDIATE</label>
+			<img src="{% static 'listen/images/Illustrations_Color_Paris_Int.png' %}" alt="Intermediate">
 		</div>
 		<div class="col-md-4">
-			<img src="{% static 'listen/images/Illustrations_Paris_Advanced.png' %}" alt="Advanced">
+			<input type="radio" id="radio3" name="selector" style="position: relative; left: 57px;">
+			<label for="radio3" style="position: relative; left: 57px;">I AM ADVANCED</label>
+			<img src="{% static 'listen/images/Illustrations_Color_Paris_Advanced.png' %}" alt="Advanced">
 		</div>
 	</div>
 
 	<div class="small-space-div"></div>
 	<div class="small-space-div"></div>
+	<div class="small-space-div"></div>
 
+	<center><input type="submit" class="make-playlist-button" value="MAKE MY PLAYLIST!" style="font-family: Futura;"></center>
+
+	</form>
+
+	<!--
 	<div class="row" id="skillLevel">
 		<div class="col-md-4">
 			<div class="thumbnail">
@@ -115,6 +142,7 @@
 			</div>
 		</div>
 	</div>
+	-->
 
 	<h1>Here is your playlist:</h1>
 	{% if song_list %}
@@ -158,11 +186,31 @@
 	    <p>No songs are available.</p>
 	{% endif %}
 
+<!--
 	<h1>Here is the mockup image:</h1>
 
 	<img src="{% static 'listen/images/Mockups_1440x900_Annotated.png' %}" class="img-responsive" alt="Mockup" />
+-->
+	</div>
+
+	<footer style="background-color: #cccccc;">
+
+	<div class="small-space-div"></div>
+
+	<div class="small-space-div"></div>
+
+	<div class="small-space-div"></div>
+		<center><p class="lead">Want to learn more about LISTEN?<br />Let us know at <strong>sher820@stanford.edu</strong></p></center>
+
+	<div class="small-space-div"></div>
+
+	<div class="small-space-div"></div>
+
+	<div class="small-space-div"></div>
+	</footer>
 
 	</div>
-	</div>
+
+	
 </body>
 </html>

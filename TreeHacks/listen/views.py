@@ -16,6 +16,9 @@ def index(request):
     context = {'song_list': song_list}
     return render(request, 'listen/index.html', context)
 
+def make_playlist(request):
+    return HttpResponse("Yooooo!")
+
 # Create your views here.
 """
 def index(request):

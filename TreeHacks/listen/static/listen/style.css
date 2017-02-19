@@ -8,6 +8,7 @@ body {
   /*padding-bottom: 20px; /*ahem, spacing!*/
   background-color: #D5EEF6;
   font-family:Futura;
+  /*background: url("images/Homepage_Homepage BG.png") no-repeat; LOLOLOL*/
 }
 
 .other-colour {
@@ -34,6 +35,14 @@ body {
 
 .small-space-div {
   height: 3vh;
+}
+
+input[type='radio'] {
+  
+}
+
+label {
+  font-size: 18pt;
 }
 
 /* Custom page header */
@@ -72,7 +81,7 @@ body {
   -moz-border-radius:5px;
   -webkit-border-radius:5px;
   border-radius:5px;
-  /*border:1px solid #337bc4;*/
+  border:0px solid #337bc4;
   display:inline-block;
   cursor:pointer;
   color:#ffffff;
@@ -115,6 +124,33 @@ body {
   text-decoration: none;
 }
 .lang-select-button:active {
+  position:relative;
+  top:1px;
+}
+
+.make-playlist-button {/*00ccff 099dcb*/ /* 1564ad 79bbff*/
+  -moz-box-shadow: 0px 7px 0px 0px #4c81db;
+  -webkit-box-shadow: 0px 7px 0px 0px #4c81db;
+  box-shadow: 0px 7px 0px 0px #4c81db;
+  background-color:#5da7df;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  border:0px solid #337bc4;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:24px;
+  padding:14px 60px;
+  text-decoration:none;
+  text-shadow:0px 0px 0px #528ecc;
+}
+.make-playlist-button:hover {
+  /*background-color:#378de5;*/
+  text-decoration: none;
+}
+.make-playlist-button:active {
   position:relative;
   top:1px;
 }
